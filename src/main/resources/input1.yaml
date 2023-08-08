@@ -1,0 +1,9 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Issue Demo
+  description: none
+
+paths:
+  /test:
+    $ref: 'input1Child.yaml#/paths/~1test'

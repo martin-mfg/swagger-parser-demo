@@ -1,0 +1,34 @@
+components:
+  parameters:
+    pets:
+      name: pets
+      in: query
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/Pet'
+        default: [DOG, FISH]
+
+  schemas:
+    Pet:
+      type: string
+      enum:
+        - DOG
+        - CAT
+        - FISH
+
+paths:
+  /test:
+    get:
+      description: Returns ad for a given ad ID.
+      operationId: getAd
+      parameters:
+        - $ref: '#/components/parameters/pets'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: pong
